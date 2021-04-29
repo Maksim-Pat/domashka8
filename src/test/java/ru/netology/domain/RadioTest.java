@@ -1,10 +1,24 @@
 package ru.netology.domain;
-
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
+
+    @Test
+    public void shouldSwitchChanelUp() {
+        Radio radio = new Radio();
+        radio.setStation(1);
+        radio.switchArrowsUp();
+        assertEquals(2, radio.getStation());
+    }
+
+    @Test
+    public void shouldSwitchChanelDown() {
+        Radio radio = new Radio();
+        radio.setStation(2);
+        radio.switchArrowsDown();
+        assertEquals(1, radio.getStation());
+    }
 
     @Test
     public void shouldIncreaseVolume() {
@@ -15,7 +29,6 @@ class RadioTest {
         radio.volumeUp();
         assertEquals(10, radio.getCurrentVolume());
     }
-
     @Test
     public void shouldDecreaseVolume() {
         Radio radio = new Radio();
@@ -25,5 +38,4 @@ class RadioTest {
         radio.volumeDown();
         assertEquals(7, radio.getCurrentVolume());
     }
-
 }
